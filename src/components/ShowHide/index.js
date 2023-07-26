@@ -10,33 +10,39 @@ class ShowHide extends Component {
   }
 
   lastName = () => {
-    this.setState(prevState => ({first: !prevState.last}))
+    this.setState(prevState => ({last: !prevState.last}))
   }
 
   render() {
     const {first, last} = this.state
-    const myFirstName = first ? (
-      <div className="fn">
-        <h1 className="head1">Joe</h1>
-      </div>
-    ) : null
+    // const myFirstName =
 
-    const myLastName = last ? (
-      <div className="fn">
-        <h1 className="head1">Jonas</h1>
-      </div>
-    ) : null
+    // const myLastName =
 
     return (
       <div className="container">
         <h1 className="heading"> Show/Hide </h1>
         <div className="butt">
-          <button className="button" type="button" onClick={this.firstName()}>
-            Show/Hide Firstname
-          </button>
-          <button className="button" type="button" onClick={this.lastName()}>
-            Show/Hide Lastname
-          </button>
+          <div>
+            <button className="button" type="button" onClick={this.firstName}>
+              Show/Hide Firstname
+            </button>
+            {first ? (
+              <div className="fn">
+                <p className="head1">Joe</p>
+              </div>
+            ) : null}
+          </div>
+          <div>
+            <button className="button" type="button" onClick={this.lastName}>
+              Show/Hide Lastname
+            </button>
+            {last ? (
+              <div className="fn">
+                <p className="head1">Jonas</p>
+              </div>
+            ) : null}
+          </div>
         </div>
       </div>
     )
